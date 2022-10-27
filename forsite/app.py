@@ -34,14 +34,14 @@ def parse_a_query(query):
         parsed_query.append(new_item)
     return parsed_query
 def search2(query, corpus):
-    with open('corpus.json', 'r', encoding='utf-8') as f_corp:
+    with open('/home/musorniikotenochek/finalprojectautobreya/forsite/corpus.json', 'r', encoding='utf-8') as f_corp:
         corpus = json.load(f_corp)
     replys = []
     num_matches = 0
     query = parse_a_query(query)
 
     if query == []:
-        replys.append('Ошибка: пустой запрос.')
+        replys.append(['Ошибка: пустой запрос.'])
         return replys
 
     for sent in corpus:
@@ -58,16 +58,12 @@ def search2(query, corpus):
                     continue
                 break
             else:
-                replys.append('Совпадение: ' + ' '.join(match) +'. Предложение: '+ '\n' + sent['sentence'] + '\n' + 'Источник: ' + sent['source'] + '\n\n')
+                replys.append(['Совпадение: ' + ' '.join(match),'Предложение: ' + sent['sentence'],'Источник: ' + sent['source']])
                 num_matches += 1
                 # break # каждое предложение из корпуса будет печататься 1 раз максимум (можно включить и убрать печать совпадений)
 
     if num_matches == 0:
-        replys.append('По этому запросу ничего не найдено.')
+        replys.append(['По этому запросу ничего не найдено.'])
     else:
-        replys.append('Итого найдено ' + str(num_matches) + ' совпадений.')
+        replys.append(['Итого найдено ' + str(num_matches) + ' совпадений.'])
     return replys
-
-
-if __name__ == '__main__':
-    app.run()
