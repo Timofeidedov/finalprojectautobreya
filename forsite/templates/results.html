@@ -4,7 +4,16 @@
     <table class="table">
         {% for i in range(0, results|length) %}
             <tr>
-                <td>{{ results[i]}}</td>
+                <td>{{ results[i][0] }}</td>
+            </tr>
+            <tr>
+                <td>{{ results[i][1] }}</td>
+            </tr>
+            <tr>
+                <td>{{ results[i][2] }}</td>
+            </tr>
+            <tr>
+                <td></td>
             </tr>
         {% endfor %}
     </table>
