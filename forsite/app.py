@@ -58,7 +58,7 @@ def search2(query, corpus):
                     continue
                 break
             else:
-                replys.append(['Совпадение: ' + ' '.join(match),'Предложение: ' + sent['sentence'],'Источник: ' + sent['source']])
+                replys.append(['Совпадение: ' + ' '.join(match), sent['sentence'],'Источник: ' + sent['source']])
                 num_matches += 1
                 # break # каждое предложение из корпуса будет печататься 1 раз максимум (можно включить и убрать печать совпадений)
 
